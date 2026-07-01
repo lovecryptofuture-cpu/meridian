@@ -15,8 +15,8 @@
   --obsidian:#05060a; --panel:#0c0f18; --panel-2:#10131f;
   --ink:#eef1f8; --ink-dim:#9aa3bd; --ink-faint:#5b6480; --line:rgba(255,255,255,.08);
   --profit:#5ff2b0; --loss:#ff6b6b; --gold:#ffd98a;
-  --holo-1:#7af0ff; --holo-2:#b388ff; --holo-3:#ff8fd0; --holo-4:#ffd98a; --holo-5:#6affc4;
-  --holo: linear-gradient(105deg,var(--holo-1),var(--holo-2) 28%,var(--holo-3) 52%,var(--holo-4) 74%,var(--holo-5));
+  --holo-1:#6fe9ff; --holo-2:#34e0b0; --holo-3:#8affd0; --holo-4:#ffd98a; --holo-5:#5fd0ff;
+  --holo: linear-gradient(105deg,var(--holo-1),var(--holo-2) 30%,var(--holo-3) 52%,var(--holo-4) 74%,var(--holo-5));
   --r:18px;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -24,9 +24,9 @@ html,body{margin:0;background:var(--obsidian);color:var(--ink);
   font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 body{min-height:100vh;
   background:
-    radial-gradient(1100px 600px at 78% -8%, rgba(122,240,255,.10), transparent 60%),
-    radial-gradient(900px 520px at 12% 4%, rgba(179,136,255,.10), transparent 60%),
-    radial-gradient(1000px 800px at 50% 118%, rgba(255,143,208,.07), transparent 60%),
+    radial-gradient(1100px 600px at 78% -8%, rgba(111,233,255,.10), transparent 60%),
+    radial-gradient(900px 520px at 12% 4%, rgba(52,224,176,.10), transparent 60%),
+    radial-gradient(1000px 800px at 50% 118%, rgba(255,217,138,.06), transparent 60%),
     var(--obsidian);
   padding:env(safe-area-inset-top) 0 calc(env(safe-area-inset-bottom) + 20px);}
 .wrap{max-width:760px;margin:0 auto;padding:0 16px}
@@ -49,23 +49,23 @@ header{padding:22px 0 6px;position:sticky;top:0;z-index:20;
   backdrop-filter:blur(10px)}
 .brand{display:flex;align-items:center;gap:11px}
 .logo{width:34px;height:34px;flex:0 0 34px}
-.brand h1{font-family:'Space Grotesk';font-weight:600;font-size:19px;letter-spacing:.2px;margin:0}
+.brand h1{font-family:'Space Grotesk';font-weight:600;font-size:19px;letter-spacing:1.5px;margin:0}
 .brand .sub{font-size:11px;color:var(--ink-faint);letter-spacing:.4px;text-transform:uppercase;margin-top:1px}
 
 /* year tabs */
-.yeartabs{display:flex;gap:8px;margin:16px 0 4px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.yeartabs{display:flex;gap:14px;scroll-snap-type:x proximity;margin:16px 0 4px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .yeartabs::-webkit-scrollbar{display:none}
-.ytab{white-space:nowrap;padding:9px 15px;border-radius:12px;font-family:'Space Grotesk';font-weight:500;
+.ytab{white-space:nowrap;scroll-snap-align:start;padding:10px 18px;border-radius:12px;font-family:'Space Grotesk';font-weight:500;
   font-size:13.5px;color:var(--ink-dim);background:var(--panel);border:1px solid var(--line);position:relative}
 .ytab.active{color:var(--ink);background:var(--panel-2)}
 .ytab.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:2px;border-radius:2px;
   background:var(--holo);background-size:200% 100%;animation:sheen 9s ease-in-out infinite}
-.ytab.add{color:var(--holo-1);font-weight:600;padding:9px 13px}
+.ytab.add{color:var(--holo-2);font-weight:600;padding:10px 15px;margin-left:4px}
 
 /* sub view toggle */
 .seg{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:4px;margin:14px 0 18px}
 .seg button{flex:1;padding:9px;border-radius:10px;font-size:13.5px;font-weight:500;color:var(--ink-dim);transition:.15s}
-.seg button.on{color:var(--obsidian);background:linear-gradient(105deg,#dff7ff,#efe6ff);font-weight:600}
+.seg button.on{color:var(--obsidian);background:linear-gradient(105deg,#dffcf5,#eafcff);font-weight:600}
 
 /* cards */
 .card{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);
@@ -129,7 +129,7 @@ header{padding:22px 0 6px;position:sticky;top:0;z-index:20;
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 16px;border-radius:13px;
   font-weight:600;font-size:14px;background:var(--panel-2);border:1px solid var(--line);color:var(--ink);width:100%}
-.btn.primary{color:var(--obsidian);background:linear-gradient(105deg,#9ef0ff,#c9b3ff 55%,#ffc0e6);border:none}
+.btn.primary{color:var(--obsidian);background:linear-gradient(105deg,#8ff2ff,#4fe6c0 55%,#ffe3a3);border:none}
 .btn.ghost{background:transparent}
 .btnrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
 .btnrow.three{grid-template-columns:1fr 1fr 1fr}
@@ -161,7 +161,7 @@ header{padding:22px 0 6px;position:sticky;top:0;z-index:20;
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .fab{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom) + 18px);z-index:40;
   padding:14px 20px;border-radius:16px;font-family:'Space Grotesk';font-weight:600;font-size:14.5px;color:var(--obsidian);
-  background:linear-gradient(105deg,#9ef0ff,#c9b3ff 55%,#ffc0e6);box-shadow:0 8px 30px rgba(122,240,255,.22)}
+  background:linear-gradient(105deg,#8ff2ff,#4fe6c0 55%,#ffe3a3);box-shadow:0 8px 30px rgba(52,224,176,.22)}
 @media(prefers-reduced-motion:reduce){.foil,.holobar,.card.holo::before,.ytab.active::after{animation:none}}
 </style>
 </head>
@@ -170,11 +170,19 @@ header{padding:22px 0 6px;position:sticky;top:0;z-index:20;
   <header>
     <div class="brand">
       <svg class="logo" viewBox="0 0 48 48" fill="none">
-        <defs><linearGradient id="lg" x1="0" y1="0" x2="48" y2="48">
-          <stop stop-color="#7af0ff"/><stop offset=".5" stop-color="#b388ff"/><stop offset="1" stop-color="#ff8fd0"/>
-        </linearGradient></defs>
-        <path d="M24 41C11 32 6 25 6 18c0-6 4.6-10 10-10 3.4 0 6.2 1.7 8 4.4C25.8 9.7 28.6 8 32 8c5.4 0 10 4 10 10 0 7-5 14-18 23Z" fill="url(#lg)" opacity=".92"/>
-        <path d="M13 26l6-7 5 6 5-10 6 12" stroke="#05060a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <defs>
+          <radialGradient id="core" cx="50%" cy="42%" r="62%">
+            <stop offset="0" stop-color="#eafff8"/><stop offset=".42" stop-color="#4fe6c0"/><stop offset="1" stop-color="#0f9f82"/>
+          </radialGradient>
+          <linearGradient id="arc" x1="4" y1="6" x2="44" y2="42" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#6fe9ff"/><stop offset=".55" stop-color="#34e0b0"/><stop offset="1" stop-color="#ffd98a"/>
+          </linearGradient>
+        </defs>
+        <circle cx="24" cy="24" r="18.5" stroke="rgba(255,255,255,.10)" stroke-width="1"/>
+        <path d="M7.5 27 A17 17 0 0 1 31 8.5" stroke="url(#arc)" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M40.5 21 A17 17 0 0 1 17 39.5" stroke="url(#arc)" stroke-width="2.6" stroke-linecap="round" opacity=".8"/>
+        <circle cx="24" cy="24" r="6.6" fill="url(#core)"/>
+        <path d="M17.5 29.5 L22 25 L25.5 27.6 L31 20.5" stroke="#053026" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
       </svg>
       <div>
         <h1>Love <span class="foil">·</span> P&amp;L</h1>
@@ -216,7 +224,8 @@ const entryFY=e=>e.fy!=null?e.fy:(e.period?fyOfDate('2000-01-01'):currentFY());
 
 /* ---- state ---- */
 let S=load();
-let sel={fy:pickDefaultFY(),view:'month',month:null};
+function latestActivity(){const ds=(S.logs||[]).filter(l=>!isAdj(l)).map(l=>l.date).sort();return ds.length?ds[ds.length-1]:null;}
+let sel;
 
 function load(){
   try{const raw=localStorage.getItem(KEY);if(raw)return JSON.parse(raw);}catch(e){}
@@ -364,6 +373,7 @@ function viewYear(){
 }
 
 function emptyYear(fy){
+  const rm=isRemovable(fy);
   return `<section class="card holo empty">
     <div class="holobar" style="width:60px;margin:0 auto 4px"></div>
     <div class="em foil">${fyLabel(fy)} — a clean slate</div>
@@ -372,6 +382,7 @@ function emptyYear(fy){
       <button class="btn primary" data-act="log-week">Log this week</button>
       <button class="btn" data-act="restore">Restore</button>
     </div>
+    ${rm?`<button class="btn ghost" style="margin:12px auto 0;max-width:320px;color:var(--loss)" data-act="remove-year">Remove ${fyLabel(fy)}</button>`:''}
   </section>`;
 }
 
@@ -465,6 +476,7 @@ function act(a){
   if(a==='export')return doExport();
   if(a==='restore')return restore();
   if(a==='share-year')return shareYear();
+  if(a==='remove-year')return removeYear(sel.fy);
 }
 
 /* modal helpers */
@@ -510,10 +522,23 @@ function logMonth(){
     save();closeSheet();render();toast('Month saved');
   };
 }
+function isRemovable(fy){
+  return fy!==currentFY() && logsFY(fy).length===0 && entriesFY(fy).length===0 && (S.extraYears||[]).includes(fy);
+}
 function addYear(){
-  const next=Math.max(currentFY(),...allFYs())+1;
+  const latest=Math.max(currentFY(),...allFYs());
+  if(logsFY(latest).length===0 && entriesFY(latest).length===0){
+    sel.fy=latest;sel.view='year';sel.month=null;render();toast(fyLabel(latest)+' is already open');return;
+  }
+  const next=latest+1;
   S.extraYears=S.extraYears||[];if(!S.extraYears.includes(next))S.extraYears.push(next);
   sel.fy=next;sel.view='year';sel.month=null;save();render();toast(fyLabel(next)+' opened');
+}
+function removeYear(fy){
+  if(!isRemovable(fy)){toast('Only empty years can be removed');return;}
+  S.extraYears=(S.extraYears||[]).filter(y=>y!==fy);save();
+  const d=latestActivity();sel.fy=d?fyOfDate(d):currentFY();sel.view='month';sel.month=d?d.slice(0,7):null;
+  render();toast(fyLabel(fy)+' removed');
 }
 
 /* export / import / share */
@@ -560,6 +585,8 @@ Accounts: ${entriesFY(fy).length}`;
 window.__close=closeSheet;
 
 /* boot */
+const _d=latestActivity();
+sel=_d?{fy:fyOfDate(_d),view:'month',month:_d.slice(0,7)}:{fy:currentFY(),view:'month',month:null};
 render();
 
 </script>
